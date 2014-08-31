@@ -4,7 +4,11 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.SortedSet;
+import java.util.Spliterator;
 import java.util.TreeSet;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * The <tt>SET</tt> class represents an ordered set. It assumes that the
@@ -276,6 +280,36 @@ public class Menge<Key extends Comparable<Key>> implements SortedSet<Key>,
 	@Override
 	public SortedSet<Key> tailSet(Key fromElement) {
 		return set.tailSet(fromElement);
+	}
+
+	@Override
+	public boolean removeIf(Predicate<? super Key> filter) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Stream<Key> stream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Stream<Key> parallelStream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void forEach(Consumer<? super Key> action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Spliterator<Key> spliterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

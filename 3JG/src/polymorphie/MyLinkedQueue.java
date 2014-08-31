@@ -6,6 +6,8 @@ package polymorphie;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 import myLinkedList.MyLinkedList;
 
@@ -153,6 +155,12 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 			removable = false;
 		}
 
+		@Override
+		public void forEachRemaining(Consumer<? super E> action) {
+			// TODO Auto-generated method stub
+			
+		}
+
 	}
 	public static void main(String[] a){
 		String[] VALUES={"erstes","zweites","drittes","viertes"};
@@ -163,5 +171,17 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 			mll.delete();
 		int expected=0;
 		int actual=mll.size();
+	}
+
+	@Override
+	public void forEach(Consumer<? super E> action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Spliterator<E> spliterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

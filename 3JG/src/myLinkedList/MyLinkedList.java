@@ -5,6 +5,8 @@ package myLinkedList;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * @author Walter Rafeiner-Magor
@@ -279,6 +281,24 @@ public class MyLinkedList<E> implements MyList<E>, Iterable<E> {
 			// only one deletion is allowed
 			removable = false;
 		}
+
+		@Override
+		public void forEachRemaining(Consumer<? super E> action) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+
+	@Override
+	public void forEach(Consumer<? super E> action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Spliterator<E> spliterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
