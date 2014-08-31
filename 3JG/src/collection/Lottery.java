@@ -17,45 +17,46 @@ public interface Lottery {
 	public void createLottery();
 	/**
 	 * Die Ziehung wird durchgeführt
+	 * ->Falls es noch keine neue Lottery gab!
 	 */
 	public void drawing();
 	/**
 	 * Los verkaufen
 	 * @param verkauftes Los
 	 */
-	public void insertFortune(Fortune f);
+	public void insertLot(Lot f);
 	/**
 	 * Los einlösen
 	 * @param f
 	 * @return Preis
 	 */
-	public String removeFortune(Fortune f);
+	public String removeLot(Lot f);
 	/**
 	 * Liste aller verkauften Lose
 	 * @return Liste von Losen
 	 */
-	public List<Fortune> availableFortunes();
+	public List<Lot> availableLots();
 	/**
 	 * Liste aller Lose mit Gewinn
 	 * @return Liste von Losen
 	 */
-	public Map<Fortune,String> winningFortunes();
+	public Map<Lot,String> winningLots();
 	/**
 	 * Gewinn des Loses
 	 * @param Los
 	 * @return konkreter Gewinn bzw "Leider kein Gewinn"
 	 */
-	public String fortuneWinningInformation(Fortune f);
+	public String LotWinningInformation(Lot f);
 	/**
 	 * Ausgabe auf der Konsole: Alle Losnummern und deren Gewinn
 	 */
-	void printWinningFortunes();
+	void printWinningLots();
 	/**
 	 * Ausgabe auf der Konsole: Alle verkauften Losnummern
 	 */
-	void printsoldFortunes();
+	void printsoldLots();
 	/**
 	 * Verkaufe eine zufällige Anzahl von Losen zwischen Anzahl der Preise und 100
 	 */
-	void randomSoldFortunes();
+	void randomSoldLots();
 }

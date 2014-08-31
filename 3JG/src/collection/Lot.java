@@ -7,7 +7,7 @@ package collection;
  * @author Walter Rafeiner-Magor
  *
  */
-public class Fortune {
+public class Lot {
 	private static int lastNumber=0;
 	private int number;
 	private boolean sold;
@@ -15,16 +15,16 @@ public class Fortune {
 	 * @param number
 	 * @param sold
 	 */
-	private Fortune() {
-		this.number=++Fortune.lastNumber;
+	private Lot() {
+		this.number=++Lot.lastNumber;
 		this.sold=false;
 	}
 	/**
-	 * create a new Fortune
+	 * create a new Lot
 	 * @return
 	 */
-	public static synchronized Fortune getFortune(){
-		return new Fortune();
+	public static synchronized Lot getLot(){
+		return new Lot();
 	}
 	/**
 	 * @return the number
