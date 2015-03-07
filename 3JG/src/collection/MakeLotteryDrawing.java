@@ -102,7 +102,7 @@ public class MakeLotteryDrawing implements Lottery {
 	@Override
 	public String LotWinningInformation(Lot f) {
 		String prize = listLot.get(f);
-		prize = (prize == null) ? "keinLos vorhanden" : prize;
+		prize = (prize == null) ? "Los nicht vorhanden" : prize;
 		return prize;
 	}
 

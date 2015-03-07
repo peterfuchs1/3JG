@@ -282,20 +282,20 @@ public class MyLinkedList<E> implements MyList<E>, Iterable<E> {
 			removable = false;
 		}
 
-		@Override
+		//@Override
 		public void forEachRemaining(Consumer<? super E> action) {
 			// TODO Auto-generated method stub
 			
 		}
 	}
 
-	@Override
+	//@Override
 	public void forEach(Consumer<? super E> action) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	//@Override
 	public Spliterator<E> spliterator() {
 		// TODO Auto-generated method stub
 		return null;

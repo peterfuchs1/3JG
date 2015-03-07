@@ -4,7 +4,6 @@ public abstract class GeomFigur {
 	private int x,y;
 	private boolean sichtbar;
 	public abstract void anzeigen();
-	public  abstract void entfernen();
 	public void setPosition( int xNeu, int yNeu){
 		x=xNeu;
 		y=yNeu;
