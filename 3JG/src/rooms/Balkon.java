@@ -50,7 +50,7 @@ public class Balkon implements Rooms {
 	@Override
 	public String getInformation() {
 		
-		String out=String.format("Ein Balkon mit %.2fm² Nettoflaeche und einem %.2f langem Gelaender.\n", this.nettoFlaeche(),this.gelaender);
+		String out=String.format("Ein Balkon mit %.2fm² Nettoflaeche und einem %.2fm langem Gelaender.\n", this.nettoFlaeche(),this.gelaender);
 		return out;
 	}
 }

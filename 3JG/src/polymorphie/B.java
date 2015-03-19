@@ -1,14 +1,11 @@
 package polymorphie;
 
 public class B extends A {
-	 void p(int b) { // overrides second p
-	     print("Beh!");
+	private int b;
+	public B(int b){ this.b=b;}
+	void p(int b) { 
+		print("Beh!");
 	}
-
-	public static void main(String[] args) {
-		A a = new A();
-		a.p(1); // print  „Aah!“
-		a = new B();
-		a.p(1); // print  „Beh!“
-	}
+	public int hurra(){ return this.b;}
 }
+
