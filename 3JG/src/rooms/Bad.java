@@ -35,6 +35,7 @@ public class Bad extends Wohnraum {
 
 	/**
 	 * Anzahl der Warmwasseranschluesse >= 0
+	 * @throws IllegalArgumentException
 	 */
 	public void setWarmWasser(int anschluesse) {
 		if (anschluesse < 0) throw new IllegalArgumentException("Anzahl der Warmwasseranschluesse >= 0! ("+anschluesse+")");
@@ -43,6 +44,7 @@ public class Bad extends Wohnraum {
 
 	/**
 	 * Anzahl der Kaltwasseranschluesse >= 0
+	 * @throws IllegalArgumentException
 	 */
 	public void setKaltWasser(int anschluesse) {
 		if (anschluesse < 0) throw new IllegalArgumentException("Anzahl der Kaltasseranschluesse >= 0! ("+anschluesse+")");

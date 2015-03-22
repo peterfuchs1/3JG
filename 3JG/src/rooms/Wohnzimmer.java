@@ -6,6 +6,8 @@ package rooms;
  * nettoFlaeche = flaeche
  * beliebige Anzahl an Fenster >= 0
  * beliebige Anzahl an Tueren >= 0
+ * tische >= 0
+ * Sessel >= 0
  * 
  */
 public class Wohnzimmer extends Wohnraum {
@@ -22,22 +24,39 @@ public class Wohnzimmer extends Wohnraum {
 	public Wohnzimmer(double flaeche, double verkehrsFlaeche, int tueren,
 			int fenster) {
 		super(flaeche, verkehrsFlaeche, tueren, fenster);
-		if (tueren < 0) throw new IllegalArgumentException("Anzahl der Tueren >= 0! ("+tueren+")");
-		if (fenster < 0) throw new IllegalArgumentException("Anzahl der Fenster >= 0! ("+fenster+")");
+		// Wird in der Superklasse behandelt
+//		if (tueren < 0) throw new IllegalArgumentException("Anzahl der Tueren >= 0! ("+tueren+")");
+//		if (fenster < 0) throw new IllegalArgumentException("Anzahl der Fenster >= 0! ("+fenster+")");
 	}
-	
+	/**
+	 * set sessel
+	 * @throws IllegalArgumentException
+	 * @param sessel
+	 */
 	public void setSessel(int sessel) {
+		if (sessel <= 0) throw new IllegalArgumentException("Die Anzahl der Sessel muss >= 0 sein! ("+sessel+")");
 		this.sessel=sessel;
 	}
-
+	/**
+	 * get sessel
+	 * @return
+	 */
 	public int getSessel() {
 		return sessel;
 	}
-
+	/**
+	 * set Tische
+	 * @throws IllegalArgumentException
+	 * @param tische
+	 */
 	public void setTische(int tische) {
+		if (tische <= 0) throw new IllegalArgumentException("Die Anzahl der Tische muss >= 0 sein! ("+tische+")");
 		this.tische=tische;
 	}
-
+	/**
+	 * get Tische
+	 * @return
+	 */
 	public int getTische() {
 		return tische;
 	}

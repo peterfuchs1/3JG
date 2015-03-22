@@ -15,7 +15,7 @@ import rooms.*;
  *
  */
 public class TestPolymorphieAmocking {
-	@Mock Balkon bk;
+	@Mock private Balkon bk;
 	
 
 	public TestPolymorphieAmocking(){
@@ -23,7 +23,6 @@ public class TestPolymorphieAmocking {
  * Some work todo
  */
 
-		
 		MockitoAnnotations.initMocks(this);
 		when(bk.nettoFlaeche()).thenReturn(8.8);
 		when(bk.getInformation()).thenReturn("Ein Balkon mit 8.8m² Nettoflaeche und einem 3.5m langem Gelaender.\n");

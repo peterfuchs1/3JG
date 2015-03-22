@@ -2,10 +2,10 @@ package rooms;
 
 /**
  * Berechnung:
- * Nutzflaeche= flaeche - verkehrsflaeche > 0
- * nettoFlaeche = flaeche	> 0
- * beliebige Anzahl an Fenster
- * beliebige Anzahl an Tueren
+ * Nutzflaeche: (flaeche - verkehrsflaeche) >= 0
+ * nettoFlaeche: flaeche	> 0
+ * beliebige Anzahl an Fenster (>= 0)
+ * beliebige Anzahl an Tueren (>= 0)
  * 
  */
 public abstract class Wohnraum implements Rooms {
@@ -24,15 +24,10 @@ public abstract class Wohnraum implements Rooms {
 	 */
 	public Wohnraum(double flaeche, double verkehrsFlaeche, int tueren,
 			int fenster) {
-		if (flaeche <= 0) throw new IllegalArgumentException("Die Nettoflaeche muss > 0 sein! ("+flaeche+")");
-		if (verkehrsFlaeche < 0 || (flaeche - verkehrsFlaeche) < 0 ) 
-			throw new IllegalArgumentException("Die Verkehrsflaeche muss >= 0 sein!\n"
-					+ "sowie (flaeche - verkehrsflaeche) muss > 0sein ("+verkehrsFlaeche+")");
-		
-		this.flaeche = flaeche;
-		this.verkehrsFlaeche = verkehrsFlaeche;
-		this.tueren = tueren;
-		this.fenster = fenster;
+		this.setFlaeche(flaeche);
+		this.setVerkehrsFlaeche(verkehrsFlaeche);
+		this.setFenster(fenster);
+		this.setTueren(tueren);
 	}
 
 	/**
@@ -72,18 +67,42 @@ public abstract class Wohnraum implements Rooms {
 		return tueren;
 	}
 	/**
-	 * setter flaeche
+	 * @throws IllegalArgumentException
+	 * @param tueren the tueren to set
+	 */
+	public void setTueren(int tueren) {
+		if (tueren <= 0) throw new IllegalArgumentException("Die Anzahl der Tueren muss >= 0 sein! ("+tueren+")");
+		this.tueren = tueren;
+	}
+
+	/**
+	 * @throws IllegalArgumentException
+	 * @param fenster the fenster to set
+	 */
+	public void setFenster(int fenster) {
+		if (fenster <= 0) throw new IllegalArgumentException("Die Anzahl der Fenster muss >= 0 sein! ("+fenster+")");
+		this.fenster = fenster;
+	}
+
+	/**
+	 * set flaeche
+	 * @throws IllegalArgumentException
 	 * @param flaeche
 	 */
 	public void setFlaeche(double flaeche) {
+		if (flaeche <= 0) throw new IllegalArgumentException("Die Nettoflaeche muss > 0 sein! ("+flaeche+")");
 		this.flaeche=flaeche;
 	}
 	/**
 	 * setter verkehrsflaeche
+	 * @throws IllegalArgumentException
 	 * @param verkehrsFlaeche
 	 */
 	public void setVerkehrsFlaeche(double verkehrsFlaeche) {
-		this.verkehrsFlaeche=verkehrsFlaeche;
+		if (verkehrsFlaeche < 0 || (flaeche - verkehrsFlaeche) <= 0 ) 
+			throw new IllegalArgumentException("Die Verkehrsflaeche muss >= 0 sein!\n"
+					+ "sowie (flaeche - verkehrsflaeche) muss > 0sein ("+verkehrsFlaeche+")");
+		this.verkehrsFlaeche = verkehrsFlaeche;
 	}
 
 	/* (non-Javadoc)
