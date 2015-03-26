@@ -3,7 +3,6 @@ package rooms;
 /**
  * Berechnung:
  * Begehbarer Schrankraum: Verkehrsflaeche
- * Nutzflaeche: flaeche - schrankraum 
  * verkehrsflaeche = schrankraum
  * nettoFlaeche = flaeche + schrankraum
  * beliebige Anzahl an Fenster >= 0

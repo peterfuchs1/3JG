@@ -64,7 +64,9 @@ public class Bad extends Wohnraum {
 		if (this.anzahlTueren() > 0)
 			st="\nmit "+this.anzahlTueren()+" Tueren";
 		String out=String.format("Ein Badezimmer mit %.2fm² Nettoflaeche und %.2fm² Nutzflaeche", this.nettoFlaeche(),this.nutzFlaeche());
-		return out+sf+st+".\n";
+		String anschl=String.format("\nmit %d Kaltwasser und\n%d Warmwasserschluesse", 
+				this.kaltWasser,this.warmWasser);
+		return out+sf+st+anschl+".\n";
 	}
 
 

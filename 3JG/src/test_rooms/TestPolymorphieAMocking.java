@@ -14,11 +14,11 @@ import rooms.*;
  * @author Walter Rafeiner-Magor
  *
  */
-public class TestPolymorphieAmocking {
+public class TestPolymorphieAMocking {
 	@Mock private Balkon bk;
 	
 
-	public TestPolymorphieAmocking(){
+	public TestPolymorphieAMocking(){
 /**
  * Some work todo
  */
@@ -51,7 +51,7 @@ public class TestPolymorphieAmocking {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-			new TestPolymorphieAmocking();
+			new TestPolymorphieAMocking();
 		}
 /* AUSGABE:
 Ein Balkon mit 8.80m² und 3.50m langem Gelaender
