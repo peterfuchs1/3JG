@@ -28,6 +28,20 @@ public class Balkon implements Rooms {
 	private double gelaender;
 	private double flaeche;
 
+	/**
+	 * @return the gelaender
+	 */
+	public double getGelaender() {
+		return gelaender;
+	}
+
+	/**
+	 * @param gelaender the gelaender to set
+	 */
+	public void setGelaender(double gelaender) {
+		this.gelaender = gelaender;
+	}
+
 	@Override
 	public double nettoFlaeche() {
 		return flaeche;

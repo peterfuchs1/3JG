@@ -1,11 +1,13 @@
 package digiwatch;
 
 import java.awt.Toolkit;
+import java.time.ZonedDateTime;
 
 public class DigitalUhr {
 	private int minuten;
 	private int stunden;
 	private Zustand zustand;
+	private int difToLocalTime;
 
 	/**
 	 * @return the minuten
@@ -46,11 +48,11 @@ public class DigitalUhr {
 	 * Konstruktor
 	 */
 	public DigitalUhr() {
-		minuten = 0;
-		stunden = 0;
-		zustand = Zustand.ZeitAnzeigen;
-		dostate();
-		set();
+		this.minuten = 0;
+		this.stunden = 0;
+		this.zustand = Zustand.ZeitAnzeigen;
+		this.dostate();
+		this.set();
 	}
 
 	/**
@@ -62,18 +64,18 @@ public class DigitalUhr {
 	private void change(int value) {
 		switch (zustand) {
 		case MinutenEinstellen:
-			minuten+=value;
-			minuten = (minuten  >= 0) ? minuten % 60 : 60+ minuten;
+			this.minuten+=value;
+			this.minuten = (this.minuten  >= 0) ? this.minuten % 60 : 60+ this.minuten;
 			break;
 		case StundenEinstellen:
-			stunden+=value;
-			stunden = (stunden >= 0) ? stunden % 24 : 24+stunden;
+			this.stunden+=value;
+			this.stunden = (this.stunden >= 0) ? this.stunden % 24 : 24+this.stunden;
 			break;
 		default:
 			// keine neue Anzeige
 			return;
 		}
-		dostate();
+		this.dostate();
 	}
 
 	/**
@@ -89,14 +91,14 @@ public class DigitalUhr {
 	 * increment
 	 */
 	public void inc() {
-		change(1);
+		this.change(1);
 	}
 
 	/**
 	 * decrement
 	 */
 	public void dec() {
-		change(-1);
+		this.change(-1);
 	}
 
 	/**
@@ -106,12 +108,23 @@ public class DigitalUhr {
 		Toolkit.getDefaultToolkit().beep();
 	}
 
-	private static String toDigits(int value) {
+	public static String toDigits(int value) {
 		return (value < 10) ? "0" + value : "" + value;
 	}
 
 	public void dostate() {
-		System.out.print("\r" + toDigits(stunden) + ":" + toDigits(minuten));
+		ZonedDateTime lt = ZonedDateTime.now();
+		int localMins=lt.getHour()*60+lt.getMinute();
+		int actualMins=this.stunden*60+this.minuten;
+		this.difToLocalTime=localMins-actualMins;
+		System.out.print("\r" + toDigits(stunden) + ":" + toDigits(minuten)+" ->diff "+difToLocalTime);
+	}
+
+	/**
+	 * @return the difToLocalTime
+	 */
+	public int getDifToLocalTime() {
+		return difToLocalTime;
 	}
 
 	public static void main(String[] s) {

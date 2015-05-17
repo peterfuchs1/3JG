@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 public class MyController implements ActionListener {
 	private MyPanel mPanel;
 	private DigitalUhr model;
+	private MyClock mClock;
 
 	/**
 	 * @param gui
@@ -20,7 +21,9 @@ public class MyController implements ActionListener {
 	public MyController() {
 		model = new DigitalUhr();
 		mPanel = new MyPanel(this);
+		mClock= new MyClock(mPanel, model);
 		new MyFrame("DigitalUhr", mPanel);
+		mClock.start();
 	}
 
 	@Override
