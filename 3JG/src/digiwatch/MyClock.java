@@ -28,7 +28,7 @@ public class MyClock extends Thread {
 	public void run(){
 		while(running){
 			try {
-				Thread.sleep(30000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 			}
 			ZonedDateTime lt=ZonedDateTime.now();
