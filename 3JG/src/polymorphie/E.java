@@ -4,10 +4,10 @@ public class E {
 	public static void main(String[] args) {
 		A[] a = new A[4];
 		int i = a.length - 1;
-		a[i--] = new A(); // A
-		a[i--] = new D(-2); // B
-		a[i--] = new C(9); // C
-		a[i] = new B(3); // D
+		a[i--] = new B(2); // A
+		a[i--] = new C(-2); // B
+		a[i--] = new D(9); // C
+		a[i] = new A(); // D
 		for (; i < a.length; i++) {
 			a[i].p(i); // 1-4
 		}
