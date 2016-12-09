@@ -3,14 +3,9 @@
  */
 package lotto2;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
@@ -34,14 +29,13 @@ public class MyPanel extends JPanel {
 //	private static final Font SMALLER_FONT = new Font("monspaced", Font.PLAIN, 14);
 
 	private static final Color BACKGROUND_COLOR=new Color(176,226,255); //skyBlue
+	@SuppressWarnings("unused")
 	private static final Color COLOR2=new Color(0,191,255); //skyBlue
 	
 	
 	private TreeSet<Integer> actualTip;
 	private TreeSet<Integer> lottoTip;
 	
-	// Attribute
-	private Lotto model ; 		// Das Berechnungmodell.
 	// rechts Output-Bereich
 	private JTextField jtfZahlenGewaehlt;
 	private JTextField jtfLottoZahlen;
@@ -85,8 +79,6 @@ public class MyPanel extends JPanel {
 		int valueCount=Lotto.ANZAHL;
 		// Anzahl der Gewinnzeilen stammt aus dem Controller
 		int resultLines=Lotto.ERGEBNISSE;
-		this.model=model;
-		
 		//******************************
 		//rechte Spalte 
 		//******************************

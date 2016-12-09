@@ -5,15 +5,9 @@ package lotto2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Set;
 import java.util.TreeSet;
-
-import javax.swing.JToggleButton;
 
 
 /**
@@ -21,12 +15,10 @@ import javax.swing.JToggleButton;
  *
  */
 public class MyController implements ActionListener{
-	private MyFrame mf;
 	private MyPanel gui;
 	private Lotto model;
 	
-	private int anzGewaehlterZahlen;
-// Bruteforce
+	// Bruteforce
 	public static final int BF_ERGEBNISSE=5;
 	private ArrayList<LinkedList<TreeSet<Integer>>> bfListe;		// alle Tipps gesammelt
 	private int bfVersuche;
@@ -134,8 +126,7 @@ public class MyController implements ActionListener{
 		model=new Lotto();
 		// neues Panel erstellen
 		gui=new MyPanel(this,model);
-		// neuer Frame erstellen
-		mf=new MyFrame(gui);
+		new MyFrame(gui);
 				
 	}
 

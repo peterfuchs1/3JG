@@ -9,28 +9,27 @@ import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
-import myLinkedList.MyLinkedList;
-
 /**
  * @author Walter Rafeiner-Magor
  * @version 2.0
  * @param <E>
  * 
  */
-public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
+public class MyLinkedQueue<T> 
+	implements MyQueue<T>, Iterable<T> {
 	/**
 	 * the representation of a node
 	 * @author Walter Rafeiner-Magor
 	 *
 	 */
 	private class Cell {
-		private E value;	// the value
+		private T value;	// the value
 		private Cell next;	// pointer to the next Cell
 		/**
 		 * Constructor with a new element
 		 * @param element
 		 */
-		public Cell(E element) {value = element;}
+		public Cell(T element) {value = element;}
 	}
 
 	private Cell front, rear;	// the first and the last element
@@ -42,19 +41,19 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 	}
 
 	@Override
-	public E peek() {
+	public T peek() {
 		if (front == null)
 			throw new NoSuchElementException();
 		return front.value;
 	}
 	@Override
-	public E peekLast() {
+	public T peekLast() {
 		if (rear == null)
 			throw new NoSuchElementException();
 		return rear.value;
 	}
 	@Override
-	public MyQueue<E> append(E element) {
+	public MyQueue<T> append(T element) {
 		Cell c = new Cell(element);
 		if (front == null)
 			front = c;
@@ -66,9 +65,9 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 	}
 
 	@Override
-	public E delete() throws NoSuchElementException {
+	public T delete() throws NoSuchElementException {
 		if(count==0) throw new NoSuchElementException();
-		E ret = null;
+		T ret = null;
 		if (front != null) {
 			ret = front.value;
 			front = front.next;
@@ -84,7 +83,7 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 	}
 
 	@Override
-	public Iterator<E> iterator() {
+	public Iterator<T> iterator() {
 		// create a new iterator
 		return new MyIterator();
 	}
@@ -92,12 +91,12 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (E item : this)
+		for (T item : this)
 			sb.append(item + " ");
 		return sb.toString();
 	}
 
-	private class MyIterator implements Iterator<E> {
+	private class MyIterator implements Iterator<T> {
 		private Cell pointer;	// where are we
 		private boolean begin;	// are we at the top
 		private boolean removable;	// the remove a element a next() has been done before.
@@ -119,7 +118,7 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 		}
 
 		@Override
-		public E next() throws NoSuchElementException  {
+		public T next() throws NoSuchElementException  {
 			// if its empty 
 			if (isEmpty())
 				throw new NoSuchElementException();
@@ -156,12 +155,13 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 		}
 
 		@Override
-		public void forEachRemaining(Consumer<? super E> action) {
+		public void forEachRemaining(Consumer<? super T> action) {
 			// TODO Auto-generated method stub
 			
 		}
 
 	}
+	@SuppressWarnings("unused")
 	public static void main(String[] a){
 		String[] VALUES={"erstes","zweites","drittes","viertes"};
 		MyLinkedQueue<String> mll=new MyLinkedQueue<String>();
@@ -174,13 +174,13 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E> {
 	}
 
 	@Override
-	public void forEach(Consumer<? super E> action) {
+	public void forEach(Consumer<? super T> action) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Spliterator<E> spliterator() {
+	public Spliterator<T> spliterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}

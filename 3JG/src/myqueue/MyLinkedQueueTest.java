@@ -278,6 +278,7 @@ public class MyLinkedQueueTest {
 	/**
 	 * Test method for {@link myLinkedList.MyLinkedList#add(int, java.lang.Object)}.
 	 */
+	@SuppressWarnings("unused")
 	@Test
 	public final void testAddIntAfterEnd() {
 		for(String s:VALUES)
@@ -302,6 +303,7 @@ public class MyLinkedQueueTest {
 		assertEquals(expected, actual);
 	}
 	
+	@SuppressWarnings("unused")
 	@Test(expected=NoSuchElementException.class)
 	public final void testPeekEmpty() {
 		String actual=mll.peek();
@@ -309,6 +311,7 @@ public class MyLinkedQueueTest {
 	}
 	
 
+	@SuppressWarnings("unused")
 	@Test(expected=NoSuchElementException.class)
 	public final void testPeekLastEmpty() {
 		String actual=mll.peekLast();

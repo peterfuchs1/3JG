@@ -6,9 +6,6 @@ package stack2;
 import static org.junit.Assert.*;
 
 import java.util.EmptyStackException;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -250,7 +247,7 @@ public class JUNIT_MyStack {
 		Integer[] output=new Integer[]{1,2,3,4,5,6,7,8,9};
 		for(int i=0;i<input.length;i++)
 			stack.push(input[i]);
-		MyStack stack2=new MyStack<Integer>(output.length);
+		MyStack<Integer> stack2=new MyStack<Integer>(output.length);
 		for(int i=0;i<output.length;i++)
 			stack.push(input[i]);
 		assertNotEquals(stack,stack2);
@@ -261,7 +258,7 @@ public class JUNIT_MyStack {
 		Integer[] output=new Integer[]{1,2,3,4,5,6,7,8,10,9};
 		for(int i=0;i<input.length;i++)
 			stack.push(input[i]);
-		MyStack stack2=new MyStack<Integer>(output.length);
+		MyStack<Integer> stack2=new MyStack<Integer>(output.length);
 		for(int i=0;i<output.length;i++)
 			stack.push(input[i]);
 		assertNotEquals(stack,stack2);

@@ -5,6 +5,7 @@ public class TypanpassungExplizit {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		double dValue=1234.5E27;
 		byte bValue=(byte) dValue;

@@ -5,6 +5,7 @@ import java.util.Map;
 // Sefer
 public class Test implements Lottery{
 
+	@SuppressWarnings("unused")
 	private int gln;
 
 	public void createLottery() {

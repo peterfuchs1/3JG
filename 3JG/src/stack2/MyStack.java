@@ -1,6 +1,5 @@
 package stack2;
 
-import java.lang.reflect.Array;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Collections;
@@ -143,6 +142,7 @@ public class MyStack<E extends Comparable<E>> implements MyStackable<E>, Compara
 			newStack.push(iter.next());
 		return newStack;
 	}
+	@SuppressWarnings("unused")
 	private ArrayDeque<E> getStack(){
 		return stack;
 	}

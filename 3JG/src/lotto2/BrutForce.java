@@ -4,7 +4,6 @@ import java.util.TreeSet;
 
 public class BrutForce extends Thread {
 	private MyController myController;
-	private Lotto model;
 	private boolean stopped=false;
 	public static final long SLEEP_TIME=100L;
 	/**
@@ -13,7 +12,6 @@ public class BrutForce extends Thread {
 	 */
 	public BrutForce(MyController myController, Lotto model) {
 		this.myController = myController;
-		this.model = model;
 	}
 	
 	@Override

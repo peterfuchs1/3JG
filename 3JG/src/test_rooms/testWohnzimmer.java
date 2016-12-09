@@ -22,7 +22,7 @@ public class testWohnzimmer {
 	}
 
 	@Test
-	public final void testWohnzimmer() {
+	public final void testConstructorWohnzimmer() {
 		fail("Not yet implemented"); // TODO
 	}
 

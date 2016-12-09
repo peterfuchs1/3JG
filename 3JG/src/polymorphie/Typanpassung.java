@@ -5,6 +5,7 @@ public class Typanpassung {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		byte bValue=-128;
 		short sValue=bValue;

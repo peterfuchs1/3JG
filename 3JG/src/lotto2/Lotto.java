@@ -92,6 +92,7 @@ public class Lotto {
 		}
 		return sb.toString();
 	}
+	@SuppressWarnings("unused")
 	public static void main(String[] args){
 		Lotto lotto=new Lotto();
 		for (int schleife=0;schleife<3;schleife++){

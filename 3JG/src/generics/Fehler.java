@@ -1,7 +1,5 @@
 package generics;
 
-import java.util.ArrayList;
-
 public class Fehler {
 	public static void main(String[] args) {
 		 Number[] a = new Integer[1];

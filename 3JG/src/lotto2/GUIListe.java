@@ -1,5 +1,4 @@
 package lotto2;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 
@@ -9,6 +8,11 @@ import java.util.*;
 
 public class GUIListe extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public GUIListe(LinkedList<TreeSet<Integer>> ll, String head) {
 		
 		// Überschrift setzen

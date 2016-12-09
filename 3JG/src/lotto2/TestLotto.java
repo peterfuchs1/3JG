@@ -6,8 +6,6 @@ package lotto2;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -100,7 +98,7 @@ public class TestLotto {
 	 */
 	@Test
 	public void testAutoTip() {
-		Set myTip = Lotto.autoTip();
+		Set<Integer> myTip = Lotto.autoTip();
 		int expected = 6;
 		int actual = myTip.size();
 		assertEquals(expected, actual);

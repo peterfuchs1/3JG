@@ -1,7 +1,5 @@
 package polymorphie;
 
-import java.util.List;
-
 public class Fehler<T> {
 //	T t=new T();			// unexpected type: forbidden
 //	T[] t2=new T[];			// generic array creation: forbidden
