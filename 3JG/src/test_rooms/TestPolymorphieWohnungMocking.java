@@ -37,7 +37,7 @@ public class TestPolymorphieWohnungMocking {
 //		Schlafzimmer (18m², 1 Türe, 1 Fenster)
 //		Schlafzimmer sz1=new Schlafzimmer(18, 0, 1, 1);
 		r[i--]=sz1;
-//		Schlafzimmer (17,5m², 2 Türen, 2 Fenster, Schrankraum 3,5m²)
+//		Schlafzimmer (17,5m², Schrankraum 3,5m², 2 Türen, 2 Fenster)
 //		Schlafzimmer sz2=new Schlafzimmer(17.5, 3.5, 2, 2);
 		r[i--]=sz2;
 //		Vorraum = Verkehrsflaeche (5,8m², 4 Türen)
@@ -69,12 +69,17 @@ public class TestPolymorphieWohnungMocking {
 		when(sz1.anzahlTueren()).thenReturn(1);
 		when(sz1.getInformation()).thenReturn("Ein Schlafzimmer mit 18.0m² Nettoflaeche\nmit 1 Fenster\nmit 1 Tuere\nmit 2 Kaltwasser und\n2 Warmwasseranschluss\n");
 		
-//	    Schlafzimmer (17,5m², 2 Türen, 2 Fenster, Schrankraum 3,5m²)
-		when(sz2.nettoFlaeche()).thenReturn(21.0);
+//	    Schlafzimmer (17,5m², Schrankraum 3,5m², 2 Türen, 2 Fenster)
+		when(sz2.nettoFlaeche()).thenReturn(17.5);
 		when(sz2.nutzFlaeche()).thenReturn(17.5);
+		when(sz2.getSchrankraum()).thenReturn(3.5);
 		when(sz2.anzahlFenster()).thenReturn(2);
 		when(sz2.anzahlTueren()).thenReturn(2);
-		when(sz2.getInformation()).thenReturn("Ein Schlafzimmer mit 21.0m² Nettoflaeche\nmit 2 Fenster\nmit 2 Tuere\nmit 2 Kaltwasser und\n2 Warmwasseranschluss\n");
+		when(sz2.getInformation()).thenReturn(""
+				+ "Ein Schlafzimmer mit 17.5m² Nettoflaeche\n"
+				+ "mit einem Schrankraum mit 3.5m²\n"
+				+ "mit 2 Fenster\nmit 2 Tuere\n"
+				+ "mit 2 Kaltwasser und\n2 Warmwasseranschluss\n");
 	    
 //	    Vorraum = Verkehrsflaeche (5,8m², 4 Türen)
 		when(vr.nettoFlaeche()).thenReturn(5.8);

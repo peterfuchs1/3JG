@@ -54,7 +54,7 @@ public abstract class Wohnraum implements Rooms {
 
 	@Override
 	public double nutzFlaeche() {
-		return flaeche-verkehrsFlaeche;
+		return flaeche;
 	}
 
 	@Override
@@ -99,9 +99,9 @@ public abstract class Wohnraum implements Rooms {
 	 * @param verkehrsFlaeche
 	 */
 	public void setVerkehrsFlaeche(double verkehrsFlaeche) {
-		if (verkehrsFlaeche < 0 || (flaeche - verkehrsFlaeche) <= 0 ) 
+		if (verkehrsFlaeche < 0 ) 
 			throw new IllegalArgumentException("Die Verkehrsflaeche muss >= 0 sein!\n"
-					+ "sowie (flaeche - verkehrsflaeche) muss > 0sein ("+verkehrsFlaeche+")");
+					+ "("+verkehrsFlaeche+")");
 		this.verkehrsFlaeche = verkehrsFlaeche;
 	}
 

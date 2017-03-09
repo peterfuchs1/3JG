@@ -4,7 +4,7 @@ package rooms;
  * Berechnung:
  * Begehbarer Schrankraum: Verkehrsflaeche
  * verkehrsflaeche = schrankraum
- * nettoFlaeche = flaeche + schrankraum
+ * nettoFlaeche = flaeche
  * beliebige Anzahl an Fenster >= 0
  * beliebige Anzahl an Tueren >= 0
  * 
@@ -13,7 +13,7 @@ public class Schlafzimmer extends Wohnraum {
 
 	public Schlafzimmer(double flaeche, double schrankraum, int tueren,
 			int fenster) {
-		super(flaeche+schrankraum, schrankraum, tueren, fenster);
+		super(flaeche, schrankraum, tueren, fenster);
 		// Wird von der Superklasse behandelt
 //		if (tueren < 0) throw new IllegalArgumentException("Anzahl der Tueren >= 0! ("+tueren+")");
 //		if (fenster < 0) throw new IllegalArgumentException("Anzahl der Fenster >= 0! ("+fenster+")");
