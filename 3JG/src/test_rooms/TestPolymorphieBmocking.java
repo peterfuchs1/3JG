@@ -49,8 +49,8 @@ public class TestPolymorphieBmocking {
 		//Schlafzimmer2
 		when(s2.anzahlFenster()).thenReturn(1);
 		when(s2.anzahlTueren()).thenReturn(1);
-		when(s2.nettoFlaeche()).thenReturn(18.0);
-		when(s2.nutzFlaeche()).thenReturn(18.0);
+		when(s2.nettoFlaeche()).thenReturn(17.5);
+		when(s2.nutzFlaeche()).thenReturn(17.5);
 		when(s2.getSchrankraum()).thenReturn(3.5);
 		when(s2.getInformation())
 		.thenReturn(

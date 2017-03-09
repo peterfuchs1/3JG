@@ -41,7 +41,7 @@ public class TestPolymorphieEinfamilienhausMocking {
 //		bad2.setWarmWasser(2);		
 		r[i--]=bad2;
 //		Balkon (7,5m², Geländer=2,5m)
-		Balkon bk=new Balkon(7.5, 2.5);
+//		Balkon bk=new Balkon(7.5, 2.5);
 		r[i]=bk;
 		
 		double s_nettof=0.0,s_nutzf=0.0;
