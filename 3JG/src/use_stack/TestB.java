@@ -14,11 +14,11 @@ public class TestB {
 		
 		Verwenden v= new Verwenden();
 		v.sichern(int1, str1);
-		v.sichern(int2, str2);
+		// v.sichern(int2, str2);
 		Merken m=new Merken(int3, str3);
 		v.sichern(m);
 
-		for(int i=0;i<3;++i){
+		for(int i=0;i<=v.length();++i){
 			m=v.laden();
 			m.printInts();
 			m.printStrings();

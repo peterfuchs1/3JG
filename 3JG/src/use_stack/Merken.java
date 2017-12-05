@@ -5,7 +5,6 @@ public class Merken {
 	private String[] strings;
 	
 	public Merken(int[] ints, String[] strings) {
-		super();
 		this.ints = ints;
 		this.strings = strings;
 	}

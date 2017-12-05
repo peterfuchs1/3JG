@@ -16,4 +16,7 @@ public class Verwenden {
 	public Merken laden(){
 		return stack.pop();
 	}
+	public int length() {
+		return stack.size();
+	}
 }
