@@ -267,4 +267,32 @@ public class Utils {
 		long algorithmus=7*index-index*b; // beispielhafter Algorithmus
 		return nicht_assoziativ(index+1,algorithmus, schranke);
 	}
+	
+	public static long fn1(long x) {
+		if(x==0) return 0;
+		return 7+fn1(x-1);
+	}
+	
+	public static long fn2(long x) {
+		return fn(x,0);
+	}
+
+	private static long fn(long x, long i) {
+		if(x==0) return i;
+		return fn(x-1,7+i);
+	}
+	
+	public static long f7_sum1(long x) {
+		if(x==0) return 0;
+		return 7*x+f7_sum1(x-1);
+	}
+	
+	public static long f7_sum2(long x) {
+		return f7(x,0);
+	}
+
+	private static long f7(long x, long i) {
+		if(x==0) return i;
+		return f7(x-1,7*x+i);
+	}
 }

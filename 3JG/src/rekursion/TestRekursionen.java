@@ -24,6 +24,8 @@ public class TestRekursionen {
 		System.out.println("Double-Summe s2 ("+b+") beträgt:"+Utils.double_s2(b));
 		System.out.println("Gemischt-1 ("+b+") beträgt:"+Utils.nicht_assoziativ1(b));
 		System.out.println("Gemischt-2 ("+b+") beträgt:"+Utils.nicht_assoziativ2(b));
+		System.out.println("fn "+b+") beträgt:"+Utils.f7_sum1(b));
+		System.out.println("fn "+b+") beträgt:"+Utils.f7_sum2(b));
 	}
 
 }
