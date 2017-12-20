@@ -63,7 +63,23 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E>{
 				throw new IllegalStateException();
 		}
 	}
-
+	void insert(E element,E after) {
+		Cell before = null, c;
+		
+		for(c=front;c.next!=null&&before==null;c=c.next) {
+			if(c.next.value==after)
+				before=c.next;
+		}
+		if(before!=null) {
+			Cell temp=before.next;
+			Cell neues=new Cell(element);
+			before.next=neues;
+			neues.next=temp;
+			count++;
+			if(neues.next==null)
+				rear=neues;
+		}
+	}
 	private Cell rear, front;
 	int count;
 	@Override

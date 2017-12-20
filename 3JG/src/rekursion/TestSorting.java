@@ -1,6 +1,7 @@
 package rekursion;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TestSorting {
@@ -21,7 +22,7 @@ public class TestSorting {
 		List<Long> result = m1.start();
 		System.out.println(result.toString());
 
-		List<String> l2 = new ArrayList<String>();
+		List<String> l2 = new LinkedList<String>();
 		MergeSort<String> m2 = new MergeSort<>(l2);
 		l2.add("eight");
 		l2.add("six");

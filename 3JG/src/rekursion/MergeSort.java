@@ -2,7 +2,6 @@ package rekursion;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class MergeSort<T extends Comparable<? super T>> {
 	/* source list */
@@ -40,13 +39,13 @@ public class MergeSort<T extends Comparable<? super T>> {
 			// create a left and a right part
 			List<T> left = new ArrayList<T>();
 			List<T> right = new ArrayList<T>();
-
-			int middle = source.size() / 2;
+			int ssize =source.size();
+			int middle = ssize / 2;
 			// initialize the left part
 			for (int i = 0; i < middle; i++)
 				left.add(source.get(i));
 			// initialize the right part
-			for (int i = middle; i < source.size(); i++)
+			for (int i = middle; i < ssize; i++)
 				right.add(source.get(i));
 
 			// merge the sorted parts into a new list
