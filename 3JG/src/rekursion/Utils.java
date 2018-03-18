@@ -199,6 +199,18 @@ public class Utils {
 		return max*max+sum_quad_rec(max-1);
 	}
 
+	public static long func1(long x) {
+		if(x<1) return 0;
+		return 2*x+func1(x-1);
+	}
+	
+	public static long func2(long x) {
+		return func3(0,x);
+	}
+	private static long func3(long i,long x) {
+		if(x<1) return i;
+		return func3(2*x+i, x-1);
+	}
 	
 	/**
 	 * Summe der Quadrate endrekursiv
@@ -255,17 +267,17 @@ public class Utils {
 		long indexStart =1;
 		long algorithmusStart =0;
 		long indexSchranke = a;
-		return nicht_assoziativ(indexStart, algorithmusStart, indexSchranke);
+		return nicht_assoziativ2(indexStart, algorithmusStart, indexSchranke);
 	}
 	/**
 	 * Endrekursion eines nicht-assoziativer Algorithmus: Algorithmus 
 	 * @param a 
 	 * @return
 	 */
-	private static long nicht_assoziativ(long index, long b, long schranke) {
-		if(index>schranke) return b;
-		long algorithmus=7*index-index*b; // beispielhafter Algorithmus
-		return nicht_assoziativ(index+1,algorithmus, schranke);
+	private static long nicht_assoziativ2(long index, long ergebnis, long schranke) {
+		if(index>schranke) return ergebnis;
+		long algorithmus=7*index-index*ergebnis; // beispielhafter Algorithmus
+		return nicht_assoziativ2(index+1,algorithmus, schranke);
 	}
 	
 	public static long fn1(long x) {
@@ -295,4 +307,35 @@ public class Utils {
 		if(x==0) return i;
 		return f7(x-1,7*x+i);
 	}
+	
+	public static void printArrayRec(int[] workArray, int idx) {
+		if (idx < 0 || idx >= workArray.length) return;
+		System.out.println(workArray[idx]);
+		printArrayRec(workArray, idx-1);
+	}
+	
+	public static int findMax(int[] workArray, int idx) {
+		return findMax2(workArray, idx, workArray[idx]);
+	}
+	private static int findMax2( int[] workArray, int idx, int max) {
+		if(idx <= 0) return max;
+		return findMax2(workArray, idx-1, Math.max(max,workArray[idx-1]));
+	}
+
+	public static int findMin(int[] workArray, int idx) {
+		return findMin2(workArray, idx, workArray[idx]);
+	}
+	private static int findMin2( int[] workArray, int idx, int min) {
+		if(idx <= 0) return min;
+		return findMin2(workArray, idx-1, Math.min(min,workArray[idx-1]));
+	}
+	public static int calcSum(int[] workArray, int idx) {
+		return findCalcSum2(workArray, idx, workArray[idx]);
+	}
+	private static int findCalcSum2( int[] workArray, int idx, int sum) {
+		if(idx <= 0) return sum;
+		return findCalcSum2(workArray, idx-1, sum+workArray[idx-1]);
+	}
+	
+
 }

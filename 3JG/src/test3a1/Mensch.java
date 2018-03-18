@@ -1,7 +1,10 @@
 package test3a1;
 
 public abstract class Mensch implements Person, Sport {
-
+	public Mensch(){
+		
+	}
+	
 	/* (non-Javadoc)
 	 * @see test3a1.Sport#bewegeDich(double)
 	 */

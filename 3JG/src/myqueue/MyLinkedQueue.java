@@ -63,22 +63,47 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E>{
 				throw new IllegalStateException();
 		}
 	}
-	void insert(E element,E after) {
-		Cell before = null, c;
-		
-		for(c=front;c.next!=null&&before==null;c=c.next) {
-			if(c.next.value==after)
-				before=c.next;
+	/**
+	 * insert an element
+	 * after == null means insert at the beginning
+	 * 
+	 * @param newValue
+	 * @param after 
+	 */
+	void insert(E newValue,E after) {
+		// stop without an useful new value
+		if(newValue==null) return;
+		// create a new Cell with the given value
+		Cell newCell = new Cell(newValue);
+		// if the collection is empty or 
+		// we should insert at the very beginning
+		if(front==null || after ==null) {
+			// correct the references
+			newCell.next=front;
+			front = newCell;
+			// we should increment the count attribute
+			++count;
+			// if this was the first element, create a reference to our new Cell 
+			rear = rear==null ? newCell:rear;
+			return;
 		}
-		if(before!=null) {
-			Cell temp=before.next;
-			Cell neues=new Cell(element);
-			before.next=neues;
-			neues.next=temp;
-			count++;
-			if(neues.next==null)
-				rear=neues;
+		// Otherwise go thru and start with front
+		for(Cell c=front; c!=null; c=c.next) {
+			// If we found the given value
+			if(c.value.equals(after)) {
+				// correct the references
+				newCell.next = c.next;
+				c.next = newCell;
+				// and increment the count attribute
+				++count;
+				// if this was the last element
+				if(newCell.next==null)
+					// correct the reference for rear
+					rear=newCell;
+				break;
+			}
 		}
+
 	}
 	private Cell rear, front;
 	int count;
@@ -101,7 +126,7 @@ public class MyLinkedQueue<E> implements MyQueue<E>, Iterable<E>{
 			throw new NoSuchElementException();
 		E ret = (E)front.value;
 		if(size() > 1)
-			front = front.next; // the old element will be removed by the java garbage collection
+			front = front.next; // the old element will be removed by the java garbage collector
 		else
 			front = rear = null;
 		count--;

@@ -191,6 +191,26 @@ public class TestMyLinkedQueue {
 
 		q.insert(i, i2);
 		assertEquals("5 69 42 120 ", q.toString());
+		assertTrue(q.size()== 4);
 	}
-	
+	@Test
+	public void testInsertEmpty() {
+		Integer i=120;
+
+		q.insert(i, null);
+		assertEquals("120 ", q.toString());
+		assertTrue(q.size()==1);
+
+	}	
+	@Test
+	public void testInsertBegin() {
+		Integer i=120;
+		q.append(5);
+		q.append(69);
+		q.append(42);
+
+		q.insert(i, null);
+		assertEquals("120 5 69 42 ", q.toString());
+		assertTrue(q.size()==4);
+	}
 }

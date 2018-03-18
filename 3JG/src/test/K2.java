@@ -14,7 +14,8 @@ public abstract class K2 extends K1 implements I1, I2 {
 	/**
 	 * @see test.I2#m5(char, long)
 	 */
-	public void m5(char p1, long p2) {
+	public double m5(char p1, long p2) {
+		return p2;
 
 	}
 
