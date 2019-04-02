@@ -40,6 +40,13 @@ public class TestBruch {
 		double actual=b2.quotient();
 		assertEquals(expected,actual,0);
 	}
+	@Test(expected=ArithmeticException.class)
+	public final void testBruchIntNenner0() {
+		int zaehler = 1;
+		int nenner = 0;
+		Bruch b2=new Bruch(zaehler,nenner);
+		fail("Not reachable");
+	}
 
 	@Test
 	public final void testSetZaehler() {
@@ -58,6 +65,12 @@ public class TestBruch {
 		double expected =(double)b.getZaehler()/nenner;
 		double actual=b.quotient();
 		assertEquals(expected,actual,0);
+	}
+	@Test(expected=ArithmeticException.class)
+	public final void testSetNenner0() {
+		int nenner = 0;
+		b.setNenner(nenner);
+		fail("Not reachable");
 	}
 
 	@Test
@@ -328,5 +341,51 @@ public class TestBruch {
 		Bruch b3=new Bruch(z2,n2);
 		assertFalse(b2.equals(b3));
 	}
+	@Test
+	public final void testComparetoLower() {
+		int zaehler = 1;
+		int nenner = 8;
+		Bruch b2=new Bruch(zaehler,nenner);
+		int z2 = 2;
+		int n2 = 8;
+		Bruch b3=new Bruch(z2,n2);
+		boolean expected=b2.compareTo(b3)<0;
+		assertTrue(expected);
+	}
+	@Test
+	public final void testComparetoGreather() {
+		int zaehler = 1;
+		int nenner = 8;
+		Bruch b2=new Bruch(zaehler,nenner);
+		int z2 = 2;
+		int n2 = 8;
+		Bruch b3=new Bruch(z2,n2);
+		boolean expected=b3.compareTo(b2)>0;
+		assertTrue(expected);
+	}
+	@Test
+	public final void testComparetoEqual() {
+		int zaehler = 1;
+		int nenner = 8;
+		Bruch b2=new Bruch(zaehler,nenner);
+		int z2 = 1;
+		int n2 = 8;
+		Bruch b3=new Bruch(z2,n2);
+		boolean expected=b3.compareTo(b2)==0;
+		assertTrue(expected);
+	}
 
+	@Test
+	public final void testVorzeichenwechsel() {
+		int zaehler = -1;
+		int nenner = 8;
+		Bruch b2=new Bruch(zaehler,nenner);
+		int z2 = 1;
+		int n2 = -8;
+		Bruch b3=new Bruch(z2,n2);
+		boolean expected=b3.compareTo(b2)==0;
+		assertTrue(expected);
+	}
+
+	
 }

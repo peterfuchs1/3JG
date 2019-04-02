@@ -29,10 +29,10 @@ public class Golfball implements Serializable, Cloneable, Comparable<Object> {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
+		if (obj == null) return false;
+		if (this == obj) return true;
 
-		if ((obj != null) && (getClass() == obj.getClass())) {
+		if (getClass() == obj.getClass()) {
 			Golfball gb = (Golfball) obj;
 			if ((brand.equals(gb.getBrand())) && (make.equals(gb.getMake()))
 					&& (compression == gb.getCompression())) {

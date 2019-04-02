@@ -1,6 +1,6 @@
 package bruch;
 
-import org.mockito.internal.matchers.Equals;
+
 
 /**
  * Write a description of class Bruch here.
@@ -8,7 +8,7 @@ import org.mockito.internal.matchers.Equals;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bruch
+public class Bruch implements Comparable<Bruch>
 {
     // instance variables - replace the example below with your own
     private int zaehler;
@@ -32,14 +32,16 @@ public class Bruch
         // initialise instance variables
         this.zaehler=zaehler;
         this.nenner=nenner;
-        this.cancel();
+        this.normalize();
     }
     
     public void setZaehler(int zaehler) {
         this.zaehler=zaehler;
+        this.normalize();
     }
     public void setNenner(int nenner) {
         this.nenner=nenner;
+        this.normalize();
     }
     public int getZaehler() {
         return zaehler;
@@ -67,7 +69,7 @@ public class Bruch
     	int z=this.zaehler*b.nenner+b.zaehler*this.nenner;
     	this.zaehler=z;
     	this.nenner=n;
-    	this.cancel();
+    	this.normalize();
     	return this;
     }
 	public Bruch add(int i) {
@@ -89,7 +91,7 @@ public class Bruch
     public Bruch multi(Bruch b) {
     	this.nenner*=b.nenner;
     	this.zaehler*=b.zaehler;
-    	this.cancel();
+    	this.normalize();
     	return this;
     }
     public Bruch div(Bruch b){
@@ -101,7 +103,7 @@ public class Bruch
     }
     public static Bruch add(Bruch b1,Bruch b2){
     	Bruch b= new Bruch(b1.zaehler*b2.nenner+b2.zaehler*b1.nenner,b1.nenner*b2.nenner);
-    	b.cancel();
+    	b.normalize();
     	return b;
     }
     public static Bruch sub(Bruch b1, Bruch b2) {
@@ -109,7 +111,7 @@ public class Bruch
     }
     public static  Bruch multi(Bruch b1,Bruch b2){
     	Bruch b= new Bruch(b1.zaehler*b2.zaehler,b1.nenner*b2.nenner );
-    	b.cancel();
+    	b.normalize();
     	return b;
     }
     @Override
@@ -123,10 +125,11 @@ public class Bruch
    
     	return false;
     }
-	private void cancel() {
+	private void normalize() {
 		int y = Bruch.ggt(zaehler, nenner);
 		this.zaehler /= y;
 		this.nenner /= y;
+		this.checkNenner();
 		if(this.nenner<0) {
 			this.zaehler *= -1;
 			this.nenner *= -1;
@@ -140,4 +143,19 @@ public class Bruch
 		}
 		return a;
 	}
+	private void checkNenner() {
+		if(this.nenner==0)
+			throw new ArithmeticException("Divide by Zero!");
+	}
+	@Override
+	public int compareTo(Bruch o) {
+		double v=this.quotient()-o.quotient();
+		if(v<0.0)
+			return -1;
+		else if (v>0.0)
+			return 1;
+		else
+			return 0;
+	}
+	
 }
