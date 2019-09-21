@@ -1,7 +1,13 @@
 package assoziation;
 
-public class ToDoEintrag {
+import java.io.Serializable;
 
+public class ToDoEintrag implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9110135094946493541L;
 	private String text;
 
 	public ToDoEintrag(String text) {
