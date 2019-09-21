@@ -1,11 +1,11 @@
 package test_bruch;
 import bruch.Bruch;
 import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 
-
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class Test5Bruch {
 	private Bruch b;
 	
@@ -21,13 +21,13 @@ public class Test5Bruch {
 
 	@Test
 	@DisplayName("Test constructor: default constructor")
-	public final void testBruch() {
+	public final void testConstructorBruch() {
 		assertEquals(b.quotient(),0.0,0.01);
 	}
-
+	
 	@Test
 	@DisplayName("Test constructor: constructor with zaehler")
-	public final void testBruchInt() {
+	public final void testConstructorBruchInt() {
 		int expected =4;
 		Bruch b2=new Bruch(expected);
 		int actual=b2.getZaehler();
@@ -37,7 +37,7 @@ public class Test5Bruch {
 	
 	@DisplayName("Test constructor: constructor with zaehler and nenner")
 	@Test
-	public final void testBruchIntInt() {
+	public final void testConstructorBruchIntInt() {
 		int zaehler = 1;
 		int nenner = 8;
 		double expected =(double)zaehler/nenner;
@@ -47,7 +47,7 @@ public class Test5Bruch {
 	}
 	@Test
 	@DisplayName("Test constructor: constructor with nenner=0")
-	public final void testBruchIntNenner0() {
+	public final void testConstructorBruchIntNenner0() {
 		int zaehler = 1;
 		int nenner = 0;
 		assertThrows(ArithmeticException.class, ()->
@@ -78,10 +78,8 @@ public class Test5Bruch {
 	@Test
 	@DisplayName("Test object method: setting Nenner=0")
 	public final void testSetNenner0() {
-		int nenner = 0;
 		assertThrows(ArithmeticException.class,
-				()->b.setNenner(nenner));
-		
+				()->b.setNenner(0));
 	}
 
 	@Test
