@@ -2,7 +2,7 @@ package polymorph;
 public class TestInterface {
 
 	public static void main(String[] args) {
-		// Alle Schüler und Lehrer sind auch Personen!!!
+		// Alle SchÃ¼ler und Lehrer sind auch Personen!!!
 		Printable[] printables= new Person[9];
 		int i=0;		
 		// Erstellen von Objekten der Klasse Lehrer

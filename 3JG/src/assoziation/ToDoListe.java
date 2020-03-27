@@ -28,7 +28,7 @@ public class ToDoListe implements Serializable {
 	/**
 	 * Entfernt einen Eintrag aus der Liste
 	 * @param index welcher Eintrag soll entfernt werden?
-	 * @return Gibt den vorhanden Eintrag zurück
+	 * @return Gibt den vorhandenen Eintrag zurück
 	 */
 	public String removeEintrag(int index) {
 		if (index < 0 || index >= eintraege.length)
@@ -42,10 +42,13 @@ public class ToDoListe implements Serializable {
 		eintraege[index] = null;
 		/* quelle: Quellindex
 		 * ziel: Zielindex		 */
-		 for (int ziel=index,quelle=index+1;
-				 quelle<eintraege.length;ziel++,quelle++)
-		    eintraege[ziel]=eintraege[quelle];
-		 eintraege = Arrays.copyOf(eintraege,eintraege.length - 1);
+//		 for (int ziel=index,quelle=index+1;
+//				 quelle<eintraege.length;ziel++,quelle++)
+//		    eintraege[ziel]=eintraege[quelle];
+		int ziel=index,quelle=index+1;
+		while(quelle<eintraege.length)
+			eintraege[ziel++]=eintraege[quelle++];
+		eintraege = Arrays.copyOf(eintraege,eintraege.length - 1);
 		return value;
 	}
 
