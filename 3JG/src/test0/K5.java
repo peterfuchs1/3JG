@@ -1,4 +1,4 @@
-package test;
+package test0;
 
 public class K5 extends K2 {
 

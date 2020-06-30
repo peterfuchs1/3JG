@@ -1,6 +1,6 @@
 package file2;
 
-public class Temperatur {
+public class WetterEintrag {
 	private String datum;
 	private float wert;
 	
@@ -36,7 +36,7 @@ public class Temperatur {
 	 * @param datum
 	 * @param wert
 	 */
-	public Temperatur(String datum, float wert) {
+	public WetterEintrag(String datum, float wert) {
 		this.datum = datum;
 		this.wert = wert;
 	}

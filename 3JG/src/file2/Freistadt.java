@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.Arrays;
 
 
-public class Wien {
+public class Freistadt {
 	private WetterEintrag[] werte;
 
-	public Wien() {
+	public Freistadt() {
 		werte = new WetterEintrag[0];
 	}
 
@@ -40,12 +40,12 @@ public class Wien {
 	}
 
 	public static void main(String[] args) {
-		Wien p = new Wien();
+		Freistadt p = new Freistadt();
 		try {
-			p.laden("Wien.txt");
-			p.addWert(new WetterEintrag("2020-01-15", 6));
-			p.addWert(new WetterEintrag("2020-01-16", 7));
-			p.speichern("WienNeu.txt");
+			p.laden("Freistadt.txt");
+			p.addWert(new WetterEintrag("2020-07-01", 30));
+			p.addWert(new WetterEintrag("2020-07-02", 25));
+			p.speichern("FreistadtNeu.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

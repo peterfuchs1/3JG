@@ -1,4 +1,4 @@
-package test;
+package test0;
 
 public abstract class K1 implements I1 {
 

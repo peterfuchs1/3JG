@@ -1,4 +1,4 @@
-package test;
+package test0;
 
 //public class K3 extends K1 { // Fehler
 public class K3{ //DAmit kein Fehler angezeigt wird
